@@ -1,12 +1,12 @@
-import { Button } from "@/components/ui/button";
 import sampleData from "@/db/sample-data";
-
-// const delay = (ms: number) => new Promise((resolve) => setTimeout(resolve, ms));
+import ProductList from "@/components/product-list";
 
 const Homepage = async () => {
-  console.log(sampleData);
-  return <>Homepage</>;
-  // return <Button>Click me</Button>;
-}
- 
+  return (
+    <>
+      <ProductList data={sampleData.products} title="Newest Arrivals" limit={4} />
+    </>
+  );
+};
+
 export default Homepage;
