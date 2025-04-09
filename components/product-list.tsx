@@ -1,3 +1,5 @@
+import ProductCard from "./product-card";
+
 const ProductList = ({
   data,
   title,
@@ -14,19 +16,17 @@ const ProductList = ({
     <div className="my-10">
 
       {/* h2-bold: custom heading class */}
-      {/* just: font-bold text-2xl lg:text-3xl; */}
+      {/* same as: font-bold text-2xl lg:text-3xl; */}
+
       {/* mb-4: margin bottom of Title to stuff under it 16px */}
       <h2 className="h2-bold mb-4">{title}</h2>
       {data.length > 0 ? (
-        // grid: creates CSS Grid container
-        // grid-cols-1: single column layout by default (mobile)
-        // sm:grid-cols-2: 2 columns at 640px+ screen width
-        // md:grid-cols-3: 3 columns at 768px+ screen width
-        // lg:grid-cols-4: 4 columns at 1024px+ screen width
-        // gap-4: 1rem (16px) spacing between grid items
+        // make different number of columns for different screen sizes
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {limitedData.map((product: any) => (
-            <div key={product.slug}>{product.name}</div>
+            // React needs a unique key to identify each element in a list
+            // TODO - think about not using a separate component here..simplify
+            <ProductCard key={product.slug} product={product} />
           ))}
         </div>
       ) : (

@@ -4,7 +4,7 @@ import ProductList from "@/components/product-list";
 const Homepage = async () => {
   return (
     <>
-      <ProductList data={sampleData.products} title="Newest Arrivals" limit={4} />
+      <ProductList data={sampleData.products} title="Top Recipes" limit={4} />
     </>
   );
 };
