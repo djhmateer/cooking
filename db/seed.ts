@@ -4,6 +4,9 @@
 
 // const allUsers = await db.select().from(...);
 
+
+
+
 // Lets go direct to the database using no ORM
 // but lets run typescript directly to start with
 import postgres from 'postgres';
