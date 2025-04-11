@@ -78,7 +78,6 @@ async function noTransactionInsert() {
   };
 
   try {
-    // lets try tons of inserts with no transaction - works fine
     for (let i = 0; i < 1000; i++) {
       console.error("inserting ", i);
       await sql`INSERT INTO customers (name, email, image_url)
