@@ -1,9 +1,8 @@
 // dont want this to be run on deployment and cached
-export const dynamic = 'force-dynamic';
+export const dynamic = "force-dynamic";
 
 import "dotenv/config";
 import postgres from "postgres";
-
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 // const sql = postgres(process.env.POSTGRES_URL!);
@@ -62,7 +61,8 @@ async function transactionInsert() {
 
 const FooPage = async () => {
   const start = Date.now();
-  await noTransactionInsert();
+  await transactionInsert();
+  // await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
   return <>foo in {duration} milliseconds</>;
