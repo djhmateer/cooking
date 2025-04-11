@@ -19,7 +19,7 @@ async function noTransactionInsert() {
 
   try {
     for (let i = 0; i < 1000; i++) {
-      console.log("inserting ", i);
+      // console.log("inserting ", i);
       await sql`INSERT INTO customers (name, email, image_url)
         VALUES (${customer.name + i}, ${customer.email}, ${
         customer.image_url
