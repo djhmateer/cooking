@@ -4,10 +4,10 @@ export const dynamic = "force-dynamic";
 import "dotenv/config";
 import postgres from "postgres";
 
-// const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
-const sql = postgres(process.env.POSTGRES_URL!, {
-  prepare: false
-});
+const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
+// const sql = postgres(process.env.POSTGRES_URL!, {
+//   prepare: false
+// });
 
 async function noTransactionInsert() {
   console.time();
@@ -63,8 +63,8 @@ async function transactionInsert() {
 
 const FooPage = async () => {
   const start = Date.now();
-  // await transactionInsert();
-  await noTransactionInsert();
+  await transactionInsert();
+  // await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
   return <>foo in {duration} milliseconds</>;
