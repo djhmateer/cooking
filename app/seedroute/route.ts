@@ -18,7 +18,7 @@ async function noTransactionInsert() {
   try {
     // lets try tons of inserts with no transaction - works fine
     for (let i = 0; i < 100; i++) {
-      console.error("inserting ", i);
+      console.log("inserting ", i);
       await sql`INSERT INTO customers (name, email, image_url)
           VALUES (${customer.name + i}, ${customer.email}, ${
         customer.image_url
@@ -44,7 +44,7 @@ async function transactionInsert() {
   try {
     await sql.begin(async (sql) => {
       for (let i = 0; i < 100; i++) {
-        console.error("inserting ", i);
+        console.log("inserting ", i);
         await sql`
             INSERT INTO customers (name, email, image_url)
             VALUES (${customer.name + i}, ${customer.email}, ${
