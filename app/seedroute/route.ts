@@ -63,8 +63,8 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
-    // await transactionInsert();
-    await noTransactionInsert();
+    await transactionInsert();
+    // await noTransactionInsert();
     const end = Date.now();
     const duration = end - start;
 
