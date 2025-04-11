@@ -61,8 +61,8 @@ async function transactionInsert() {
 
 const FooPage = async () => {
   const start = Date.now();
-  await transactionInsert();
-  // await noTransactionInsert();
+  // await transactionInsert();
+  await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
   return <>foo in {duration} milliseconds</>;
