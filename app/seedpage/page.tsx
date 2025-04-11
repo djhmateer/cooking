@@ -1,5 +1,9 @@
+// dont want this to be run on deployment and cached
+export const dynamic = 'force-dynamic';
+
 import "dotenv/config";
 import postgres from "postgres";
+
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 // const sql = postgres(process.env.POSTGRES_URL!);
