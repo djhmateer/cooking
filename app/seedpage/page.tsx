@@ -5,7 +5,9 @@ import "dotenv/config";
 import postgres from "postgres";
 
 // const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
-const sql = postgres(process.env.POSTGRES_URL!);
+const sql = postgres(process.env.POSTGRES_URL!, {
+  prepare: false
+});
 
 async function noTransactionInsert() {
   console.time();
