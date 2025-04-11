@@ -20,7 +20,6 @@ async function noTransactionInsert() {
   try {
     // lets try tons of inserts with no transaction - works fine
     for (let i = 0; i < 1000; i++) {
-      // console.log("inserting ", i);
       await sql`INSERT INTO customers (name, email, image_url)
           VALUES (${customer.name + i}, ${customer.email}, ${
         customer.image_url
@@ -46,7 +45,6 @@ async function transactionInsert() {
   try {
     await sql.begin(async (sql) => {
       for (let i = 0; i < 1000; i++) {
-        console.log("inserting ", i);
         await sql`
             INSERT INTO customers (name, email, image_url)
             VALUES (${customer.name + i}, ${customer.email}, ${
@@ -65,8 +63,8 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
-    await transactionInsert();
-    // await noTransactionInsert();
+    // await transactionInsert();
+    await noTransactionInsert();
     const end = Date.now();
     const duration = end - start;
 
