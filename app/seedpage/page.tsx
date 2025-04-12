@@ -65,10 +65,9 @@ const FooPage = async () => {
   const start = Date.now();
   await transactionInsert();
   // await noTransactionInsert();
-  const foo = "foo";
   const end = Date.now();
   const duration = end - start;
-  return <>foo in {duration} milliseconds</>;
+  return <>seeded successfully in {duration} milliseconds</>;
 };
 
 export default FooPage;
