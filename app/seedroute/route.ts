@@ -75,20 +75,9 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    const errorMessage =
-      error instanceof Error ? error.message : "Unknown error occurred";
-    console.error("Seed route error:", errorMessage);
+    console.error("Seed route error:");
 
     // console.log("GET function", error);
-    // return Response.json({ error }, { status: 500 });
-    return Response.json(
-      {
-        error: errorMessage,
-        timestamp: new Date().toISOString(),
-      },
-      {
-        status: 500,
-      }
-    );
+    return Response.json({ error }, { status: 500 });
   }
 }
