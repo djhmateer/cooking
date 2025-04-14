@@ -1,6 +1,7 @@
 'use client' // Error boundaries must be Client Components
  
 import { useEffect } from 'react'
+import Link from "next/link";
  
 export default function Error({
   error,
@@ -9,8 +10,8 @@ export default function Error({
   error: Error & { digest?: string }
   reset: () => void
 }) {
+  console.log("Global error - logging to stdout");
   useEffect(() => {
-    console.log("Global error - logging to stdout");
     // Log the error to an error reporting service
     console.error(error);
   }, [error]);
@@ -18,6 +19,7 @@ export default function Error({
   return (
     <div>
       <h2>Something went wrong!</h2>
+      <Link href="/">Go Home</Link>
       {/* <button
         onClick={
           // Attempt to recover by trying to re-render the segment

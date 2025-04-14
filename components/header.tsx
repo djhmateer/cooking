@@ -1,4 +1,4 @@
-import { ShoppingCart, UserIcon, CookingPot } from "lucide-react";
+import { ShoppingCart, UserIcon, CookingPot, Info, Bug } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -31,6 +31,18 @@ const Header = () => {
         <div className="space-x-2">
           {/* Just want a link inside the button, so not a click handler. 
               So use asChild. */}
+
+          <Button asChild variant="ghost">
+            <Link href="/faq">
+              {/* Icon to the left of the text */}
+              {/* <ShoppingCart /> */}
+              <Info />
+              {/* Text */}
+              {/* All Recipes */}
+              FAQ
+            </Link>
+          </Button>
+
           <Button asChild variant="ghost">
             <Link href="/cart">
               {/* Icon to the left of the text */}
@@ -43,8 +55,8 @@ const Header = () => {
           </Button>
           <Button asChild variant="ghost">
             <Link href="/sample-error">
-              <CookingPot />
-            SampleError
+              <Bug />
+              SampleError
             </Link>
           </Button>
           {/* A darker button for login */}
