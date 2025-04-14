@@ -42,22 +42,23 @@ async function transactionInsert() {
     image_url: "/customers/evil-rabbit.png",
   };
 
-  // try {
-  await sql.begin(async (sql) => {
-    for (let i = 0; i < 1000; i++) {
-      await sql`
+  // if I don't do a try catch it locks up postgres waiting for transaction to finish
+  try {
+    await sql.begin(async (sql) => {
+      for (let i = 0; i < 1000; i++) {
+        await sql`
             INSERT INTO customers (name, email, image_url)
             VALUES (${customer.name + i}, ${customer.email}, ${
-        customer.image_url
-      })
+          customer.image_url
+        })
           `;
-    }
-  });
-  // } catch (error) {
-  //   console.error("error", error);
-  // }
-
-  console.timeEnd();
+      }
+    });
+  } catch (error) {
+    // console.error("error", error);
+    console.timeEnd();
+    throw error;
+  }
 }
 
 export async function GET() {
