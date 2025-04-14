@@ -41,6 +41,12 @@ const Header = () => {
               Not Found
             </Link>
           </Button>
+          <Button asChild variant="ghost">
+            <Link href="/sample-error">
+              <CookingPot />
+            SampleError
+            </Link>
+          </Button>
           {/* A darker button for login */}
           <Button asChild>
             <Link href="/sign-in">
