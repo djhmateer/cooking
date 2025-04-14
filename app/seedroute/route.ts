@@ -2,10 +2,10 @@
 import postgres from "postgres";
 import { customers } from "../../db/placeholder-data";
 
-// const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
-const sql = postgres(process.env.POSTGRES_URL!, {
-  prepare: false,
-});
+const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
+// const sql = postgres(process.env.POSTGRES_URL!, {
+//   prepare: false,
+// });
 
 // 10.5, 9.7, 9.2 seconds on non-pooling
 // 11.8, 11.4, 11.4, 8.4 on pooling
