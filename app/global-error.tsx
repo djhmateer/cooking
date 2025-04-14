@@ -10,9 +10,10 @@ export default function Error({
   reset: () => void
 }) {
   useEffect(() => {
+    console.log("Global error - logging to stdout");
     // Log the error to an error reporting service
-    console.error(error)
-  }, [error])
+    console.error(error);
+  }, [error]);
  
   return (
     <div>
