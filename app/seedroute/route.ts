@@ -44,6 +44,7 @@ async function transactionInsert() {
 
   // if I don't do a try catch it locks up postgres waiting for transaction to finish
   try {
+    console.log("transactionInsert start");
     await sql.begin(async (sql) => {
       for (let i = 0; i < 1000; i++) {
         await sql`
