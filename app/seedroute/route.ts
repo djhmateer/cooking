@@ -55,10 +55,11 @@ async function transactionInsert() {
       }
     });
   } catch (error) {
-    // console.error("error", error);
+    console.log("FOO! error", error);
     console.timeEnd();
     throw error;
   }
+  console.timeEnd();
 }
 
 export async function GET() {
@@ -73,8 +74,6 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    // In case transaction fails, we want the timer to stop
-    console.timeEnd();
     console.log("error", error);
     return Response.json({ error }, { status: 500 });
   }
