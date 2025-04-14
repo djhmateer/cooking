@@ -4,7 +4,7 @@ import { customers } from "../../db/placeholder-data";
 
 // const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 const sql = postgres(process.env.POSTGRES_URL!, {
-  prepare: false
+  prepare: false,
 });
 
 // 10.5, 9.7, 9.2 seconds on non-pooling
@@ -42,20 +42,20 @@ async function transactionInsert() {
     image_url: "/customers/evil-rabbit.png",
   };
 
-  try {
-    await sql.begin(async (sql) => {
-      for (let i = 0; i < 1000; i++) {
-        await sql`
+  // try {
+  await sql.begin(async (sql) => {
+    for (let i = 0; i < 1000; i++) {
+      await sql`
             INSERT INTO customers (name, email, image_url)
             VALUES (${customer.name + i}, ${customer.email}, ${
-          customer.image_url
-        })
+        customer.image_url
+      })
           `;
-      }
-    });
-  } catch (error) {
-    console.error("error", error);
-  }
+    }
+  });
+  // } catch (error) {
+  //   console.error("error", error);
+  // }
 
   console.timeEnd();
 }
