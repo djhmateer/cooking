@@ -9,28 +9,28 @@ const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 // 10.5, 9.7, 9.2 seconds on non-pooling
 // 11.8, 11.4, 11.4, 8.4 on pooling
-async function noTransactionInsert() {
-  console.time();
-  const customer = {
-    name: "Evil Rabbit",
-    email: "evil@rabbit.com",
-    image_url: "/customers/evil-rabbit.png",
-  };
+// async function noTransactionInsert() {
+//   console.time();
+//   const customer = {
+//     name: "Evil Rabbit",
+//     email: "evil@rabbit.com",
+//     image_url: "/customers/evil-rabbit.png",
+//   };
 
-  try {
-    // lets try tons of inserts with no transaction - works fine
-    for (let i = 0; i < 1000; i++) {
-      await sql`INSERT INTO customers (name, email, image_url)
-          VALUES (${customer.name + i}, ${customer.email}, ${
-        customer.image_url
-      })`;
-    }
-  } catch (error) {
-    console.error("error", error);
-  }
+//   try {
+//     // lets try tons of inserts with no transaction - works fine
+//     for (let i = 0; i < 1000; i++) {
+//       await sql`INSERT INTO customers (name, email, image_url)
+//           VALUES (${customer.name + i}, ${customer.email}, ${
+//         customer.image_url
+//       })`;
+//     }
+//   } catch (error) {
+//     console.error("error", error);
+//   }
 
-  console.timeEnd();
-}
+//   console.timeEnd();
+// }
 
 // 9.5, 8.9, 8.1, 8.9 on non-pooling
 // 8.5, 8.0, 7.4, 8.5, 8.1 on pooling
@@ -72,6 +72,8 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
+    // In case transaction fails, we want the timer to stop
+    console.timeEnd();
     console.log("error", error);
     return Response.json({ error }, { status: 500 });
   }
