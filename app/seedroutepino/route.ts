@@ -4,7 +4,7 @@ import logger from '../../lib/logger';
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function transactionInsert() {
-  console.time('transactionInsert');
+  // console.time('transactionInsert');
   const customer = {
     name: "Evil Rabbit",
     email: "evil@rabbit.com",
@@ -26,18 +26,21 @@ async function transactionInsert() {
   } catch (error) {
     throw error;
   } finally {
-    console.timeEnd('transactionInsert');
+    // console.timeEnd('transactionInsert');
   }
 
-  console.log("stdout: log: transactionInsert success");
-  console.info("stdout: info: transactionInsert success");
-  console.warn("std?? warning: transactionInsert success");
-  console.error("stderr: error: transactionInsert success");
+  // console.log("stdout: log: transactionInsert success");
+  // console.info("stdout: info: transactionInsert success");
+  // console.warn("std?? warning: transactionInsert success");
+  // console.error("stderr: error: transactionInsert success");
 }
 
 export async function GET() {
   try {
-    logger.info({ route: '/seedroutepino' }, 'API called');
+    logger.info({ route: '/seedroutepino' }, 'info API called');
+    logger.debug({ route: '/seedroutepino' }, 'debug API called');
+    logger.warn({ route: '/seedroutepino' }, 'warn API called');
+    logger.error({ route: '/seedroutepino' }, 'error API called');
 
     const start = Date.now();
     await transactionInsert();
@@ -48,8 +51,8 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    console.error("stderr: Seed route error:", error);
-    console.log("stdout: GET function", error);
+    // console.error("stderr: Seed route error:", error);
+    // console.log("stdout: GET function", error);
     return Response.json({ error }, { status: 500 });
   }
 }
