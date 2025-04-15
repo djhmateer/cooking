@@ -60,8 +60,10 @@ async function transactionInsert() {
     console.timeEnd('transactionInsert');
   }
 
+  console.log("stdout: log: transactionInsert success");
+  console.info("stdout: info: transactionInsert success");
   console.warn("std?? warning: transactionInsert success");
-  console.log("stdout: transactionInsert success");
+  console.error("stderr: error: transactionInsert success");
 }
 
 export async function GET() {
