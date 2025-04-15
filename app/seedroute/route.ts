@@ -35,7 +35,7 @@ const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 // 9.5, 8.9, 8.1, 8.9 on non-pooling
 // 8.5, 8.0, 7.4, 8.5, 8.1 on pooling
 async function transactionInsert() {
-  console.time();
+  console.time('transactionInsert');
   const customer = {
     name: "Evil Rabbit",
     email: "evil@rabbit.com",
@@ -58,7 +58,7 @@ async function transactionInsert() {
   } catch (error) {
     throw error;
   } finally {
-    console.timeEnd();
+    console.timeEnd('transactionInsert');
   }
 
   console.log("transactionInsert success");
