@@ -44,7 +44,6 @@ async function transactionInsert() {
 
   // if I don't do a try catch it locks up postgres waiting for transaction to finish
   try {
-    console.log("transactionInsert start");
     await sql.begin(async (sql) => {
       for (let i = 0; i < 1000; i++) {
         await sql`
@@ -61,7 +60,8 @@ async function transactionInsert() {
     console.timeEnd('transactionInsert');
   }
 
-  console.log("transactionInsert success");
+  console.warn("std?? warning: transactionInsert success");
+  console.log("stdout: transactionInsert success");
 }
 
 export async function GET() {
@@ -76,7 +76,7 @@ export async function GET() {
     });
   } catch (error) {
     console.error("stderr: Seed route error:", error);
-    console.log("strout: GET function", error);
+    console.log("stdout: GET function", error);
     return Response.json({ error }, { status: 500 });
   }
 }
