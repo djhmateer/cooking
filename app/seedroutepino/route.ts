@@ -26,6 +26,7 @@ async function transactionInsert() {
   } catch (error) {
     throw error;
   } finally {
+    const foo = 1
     // console.timeEnd('transactionInsert');
   }
 
@@ -53,6 +54,7 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
+    logger.error({ route: '/seedroutepino', error: error }, 'error caught');  
     return Response.json({ error }, { status: 500 });
   }
 }
