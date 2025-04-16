@@ -39,7 +39,8 @@ async function transactionInsert() {
 export async function GET() {
   try {
     logger.info({ route: '/seedroutepino' }, 'info API called');
-    logger.debug({ route: '/seedroutepino' }, 'debug API called');
+    // not getting this logged.
+    // logger.debug({ route: '/seedroutepino' }, 'debug API called');
     logger.warn({ route: '/seedroutepino' }, 'warn API called');
     logger.error({ route: '/seedroutepino' }, 'error API called');
 
