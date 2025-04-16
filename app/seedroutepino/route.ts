@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import logger from '../../lib/logger';
+import log from '../../lib/logger';
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -38,11 +38,14 @@ async function transactionInsert() {
 
 export async function GET() {
   try {
-    logger.info({ route: '/seedroutepino' }, 'info API called');
+    log.trace('trace called');
+    log.debug('debug called');
+    log.info({ route: '/seedroutepino' }, 'info API called');
     // not getting this logged.
     // logger.debug({ route: '/seedroutepino' }, 'debug API called');
-    logger.warn({ route: '/seedroutepino' }, 'warn API called');
-    logger.error({ route: '/seedroutepino' }, 'error API called');
+    log.warn({ route: '/seedroutepino' }, 'warn API called');
+    log.error({ route: '/seedroutepino' }, 'error API called');
+    log.fatal('fatal called');
 
     const start = Date.now();
     await transactionInsert();
@@ -55,7 +58,7 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    logger.error({ route: '/seedroutepino', error: error }, 'error caught');  
+    log.error({ route: '/seedroutepino', error: error }, 'error caught');  
     return Response.json({ error }, { status: 500 });
   }
 }
