@@ -2,6 +2,9 @@
 import pino, { LoggerOptions } from 'pino';
 import type { LokiOptions } from 'pino-loki'
 
+// does this stop errors?
+import logtail from '@logtail/pino'
+
 
 // todo try these options: https://stackoverflow.com/a/78435769/26086
 const options: LoggerOptions = {
