@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   },
 
   // Next.js 15
-  serverExternalPackages: ["pino", "pino-pretty", "@logtail/pino"],
+  serverExternalPackages: ["pino", "pino-pretty", "@logtail/pino", "thread-stream"],
 
   // resolves client-side module resolution error for pino
   // @see https://github.com/pinojs/pino/issues/1841#issuecomment-2244564289
