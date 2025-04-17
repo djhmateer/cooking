@@ -2,7 +2,7 @@
 import pino, { LoggerOptions } from 'pino';
 import type { LokiOptions } from 'pino-loki'
 
-// does this stop errors? - no
+// stops runtime errors on vercel
 import '@logtail/pino'
 
 
@@ -93,8 +93,8 @@ const transport = pino.transport({
 //   // Add any other base options you need
 // };
 
-const log = pino(options);
-// const log = pino(options, transport);
+// const log = pino(options);
+const log = pino(options, transport);
 
 // best performance for logging to stdout
 // https://getpino.io/#/docs/help?id=best-performance-for-logging-to-stdout
