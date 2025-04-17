@@ -38,6 +38,11 @@ async function transactionInsert() {
 
 export async function GET() {
   try {
+    return Response.json({
+      logtail_ingesting_host: process.env.LOGTAIL_INGESTING_HOST,
+      logtail_source_token: process.env.LOGTAIL_SOURCE_TOKEN,
+    });
+
     log.trace('trace called');
     log.debug('debug called');
     log.info({ route: '/seedroutepino' }, 'info API called');
