@@ -61,9 +61,9 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    // console.error("stderr: Seed route error:", error);
+    console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    log.error({ route: '/seedroutepino', error: error }, 'error caught');  
+    // log.error({ route: '/seedroutepino', error: error }, 'error caught');  
     return Response.json({ error }, { status: 500 });
   }
 }
