@@ -88,8 +88,8 @@ const transport = pino.transport({
 //   // Add any other base options you need
 // };
 
-// const log = pino(options);
-const log = pino(options, transport);
+const log = pino(options);
+// const log = pino(options, transport);
 
 // best performance for logging to stdout
 // https://getpino.io/#/docs/help?id=best-performance-for-logging-to-stdout
