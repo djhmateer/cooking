@@ -2,8 +2,8 @@
 import pino, { LoggerOptions } from 'pino';
 import type { LokiOptions } from 'pino-loki'
 
-// does this stop errors?
-import logtail from '@logtail/pino'
+// does this stop errors? - no
+import '@logtail/pino'
 
 
 // todo try these options: https://stackoverflow.com/a/78435769/26086
@@ -57,6 +57,7 @@ const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
 // try turning on to see if runtime errors
+// **HERE** getting runtime errors on vercel
 const transport = pino.transport({
   target: "@logtail/pino",
   options: {
