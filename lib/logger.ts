@@ -50,8 +50,8 @@ const options: LoggerOptions = {
 // });
 
 // logtail
-const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
+const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
 // const transport = pino.transport({
 //   target: "@logtail/pino",
