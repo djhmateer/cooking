@@ -64,14 +64,15 @@ const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 // Prety and Logtail - multi transport test works
 const transport = pino.transport({
   targets: [
-    {
-      target: "pino-pretty",
-      options: {
-        colorize: true,
-        translateTime: 'SYS:standard',
-        ignore: 'pid,hostname',
-      }
-    },
+    // exception on production
+    // {
+    //   target: "pino-pretty",
+    //   options: {
+    //     colorize: true,
+    //     translateTime: 'SYS:standard',
+    //     ignore: 'pid,hostname',
+    //   }
+    // },
     {
       target: "@logtail/pino",
       options: {
