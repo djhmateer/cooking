@@ -53,13 +53,14 @@ const options: LoggerOptions = {
 const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
-// const transport = pino.transport({
-//   target: "@logtail/pino",
-//   options: {
-//     sourceToken: sourceToken,
-//     options: { endpoint: ingestingHost },
-//   },
-// });
+// try turning on to see if runtime errors
+const transport = pino.transport({
+  target: "@logtail/pino",
+  options: {
+    sourceToken: sourceToken,
+    options: { endpoint: ingestingHost },
+  },
+});
 
 // Prety and Logtail - multi transport test works
 // const transport = pino.transport({
