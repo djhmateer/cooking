@@ -43,27 +43,30 @@ export async function GET() {
     //   logtail_source_token: process.env.LOGTAIL_SOURCE_TOKEN,
     // });
 
-    log.trace('trace called');
-    log.debug('debug called');
-    log.info({ route: '/seedroutepino' }, 'info API called');
+    // log.trace('trace called');
+    // log.debug('debug called');
+    log.debug({ route: '/seedroutepino' }, 'seedroutepino GET called');
+    // log.info({ route: '/seedroutepino' }, 'info API called');
     // not getting this logged.
     // logger.debug({ route: '/seedroutepino' }, 'debug API called');
-    log.warn({ route: '/seedroutepino' }, 'warn API called');
-    log.error({ route: '/seedroutepino' }, 'error API called');
-    log.fatal('fatal called');
+    // log.warn({ route: '/seedroutepino' }, 'warn API called');
+    // log.error({ route: '/seedroutepino' }, 'error API called');
+    // log.fatal('fatal called');
 
     const start = Date.now();
     await transactionInsert();
     const end = Date.now();
     const duration = end - start;
 
+    log.debug({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
+
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    console.error("stderr: Seed route error:", error);
+    // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    // log.error({ route: '/seedroutepino', error: error }, 'error caught');  
+    log.error({ route: '/seedroutepino', error: error }, 'error caught in seedroutepino GET');  
     return Response.json({ error }, { status: 500 });
   }
 }

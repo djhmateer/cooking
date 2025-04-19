@@ -57,35 +57,34 @@ const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
 // This works on prod with the import above
-const transport = pino.transport({
-  target: "@logtail/pino",
-  options: {
-    sourceToken: sourceToken,
-    options: { endpoint: ingestingHost },
-  },
-});
+// const transport = pino.transport({
+//   target: "@logtail/pino",
+//   options: {
+//     sourceToken: sourceToken,
+//     options: { endpoint: ingestingHost },
+//   },
+// });
 
 // Prety and Logtail - multi transport test works
-// const transport = pino.transport({
-//   targets: [
-//     // exception on production
-//     // {
-//     //   target: "pino-pretty",
-//     //   options: {
-//     //     colorize: true,
-//     //     translateTime: 'SYS:standard',
-//     //     ignore: 'pid,hostname',
-//     //   }
-//     // },
-//     {
-//       target: "@logtail/pino",
-//       options: {
-//         sourceToken: sourceToken,
-//         options: { endpoint: ingestingHost },
-//       }
-//     },
-//   ],
-// });
+const transport = pino.transport({
+  targets: [
+    {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+        translateTime: 'SYS:standard',
+        ignore: 'pid,hostname',
+      }
+    },
+    {
+      target: "@logtail/pino",
+      options: {
+        sourceToken: sourceToken,
+        options: { endpoint: ingestingHost },
+      }
+    },
+  ],
+});
 
 // const baseOptions: LoggerOptions = {
 //   level: process.env.LOG_LEVEL || 'trace',
