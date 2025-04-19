@@ -56,8 +56,7 @@ const options: LoggerOptions = {
 const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
-// try turning on to see if runtime errors
-// **HERE** getting runtime errors on vercel
+// This works on prod with the import above
 const transport = pino.transport({
   target: "@logtail/pino",
   options: {
