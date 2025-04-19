@@ -24,6 +24,7 @@ async function transactionInsert() {
       }
     });
   } catch (error) {
+    log.warn({ route: '/seedroutepino' }, 'transactionInsert error caught and rethrown', { error });
     throw error;
   } finally {
     const foo = 1
