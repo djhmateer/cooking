@@ -137,9 +137,9 @@ const transport = pino.transport({
 // };
 
 // dumps default to stdout
-// const log = pino(options);
+const log = pino(options);
 
-const log = pino(transport);
+// const log = pino(transport);
 
 // const log = pino(options, transport);
 
