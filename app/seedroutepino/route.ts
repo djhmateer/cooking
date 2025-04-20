@@ -24,7 +24,6 @@ async function transactionInsert() {
       }
     });
   } catch (error) {
-    log.warn({ route: '/seedroutepino' }, 'transactionInsert error caught and rethrown', { error });
     throw error;
   } finally {
     const foo = 1
@@ -59,6 +58,8 @@ export async function GET() {
     const end = Date.now();
     const duration = end - start;
 
+    log.debug({ route: '/seedroutepino' }, 'seedroutepino done');
+    
     log.debug({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
 
     return Response.json({
