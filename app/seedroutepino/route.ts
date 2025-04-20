@@ -46,20 +46,26 @@ export async function GET() {
     // log.trace('trace called');
     // log.debug('debug called');
     log.info({ route: '/seedroutepino' }, 'seedroutepino GET called');
-    // log.info({ route: '/seedroutepino' }, 'info API called');
-    // not getting this logged.
-    // logger.debug({ route: '/seedroutepino' }, 'debug API called');
-    // log.warn({ route: '/seedroutepino' }, 'warn API called');
-    // log.error({ route: '/seedroutepino' }, 'error API called');
-    // log.fatal('fatal called');
-
-    const start = Date.now();
+        const start = Date.now();
     await transactionInsert();
     const end = Date.now();
     const duration = end - start;
 
     log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+
+    log.info({ route: '/seedroutepino' }, 'info API called');
+    log.warn({ route: '/seedroutepino' }, 'warn API called');
+    log.error({ route: '/seedroutepino' }, 'error API called');
+    log.fatal('fatal called');
+
+
     // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
 
     return Response.json({
