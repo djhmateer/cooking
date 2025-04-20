@@ -60,7 +60,7 @@ export async function GET() {
     // comment out to see if logs work in prod
     // it works in dev
 
-    await transactionInsert();
+    // await transactionInsert();
     const end = Date.now();
 
     const duration = end - start;
