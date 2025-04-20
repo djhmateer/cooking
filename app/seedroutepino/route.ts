@@ -49,8 +49,10 @@ export async function GET() {
     const start = Date.now();
 
     // comment out to see if logs work in prod
-    // await transactionInsert();
+    // nmothing worked???
+    await transactionInsert();
     const end = Date.now();
+
     const duration = end - start;
 
     log.info({ route: "/seedroutepino" }, "seedroutepino done");
