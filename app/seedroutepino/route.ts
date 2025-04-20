@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import log from '../../lib/logger';
+import log from "../../lib/logger";
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -26,7 +26,7 @@ async function transactionInsert() {
   } catch (error) {
     throw error;
   } finally {
-    const foo = 1
+    const foo = 1;
     // console.timeEnd('transactionInsert');
   }
 
@@ -45,26 +45,27 @@ export async function GET() {
 
     // log.trace('trace called');
     // log.debug('debug called');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino GET called');
-        const start = Date.now();
-    await transactionInsert();
+    log.info({ route: "/seedroutepino" }, "seedroutepino GET called");
+    const start = Date.now();
+
+    // comment out to see if logs work in prod
+    // await transactionInsert();
     const end = Date.now();
     const duration = end - start;
 
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
-    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
+    log.info({ route: "/seedroutepino" }, "seedroutepino done");
 
-    log.info({ route: '/seedroutepino' }, 'info API called');
-    log.warn({ route: '/seedroutepino' }, 'warn API called');
-    log.error({ route: '/seedroutepino' }, 'error API called');
-    log.fatal('fatal called');
-
+    log.info({ route: "/seedroutepino" }, "info API called");
+    log.warn({ route: "/seedroutepino" }, "warn API called");
+    log.error({ route: "/seedroutepino" }, "error API called");
+    log.fatal("fatal called");
 
     // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
 
@@ -74,7 +75,10 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    log.error({ route: '/seedroutepino', error: error }, 'error caught in seedroutepino GET');  
+    log.error(
+      { route: "/seedroutepino", error: error },
+      "error caught in seedroutepino GET"
+    );
     return Response.json({ error }, { status: 500 });
   }
 }
