@@ -36,8 +36,8 @@ async function transactionInsert() {
   // console.error("stderr: error: transactionInsert success");
 }
 
-// export async function GET() {
-export function GET() {
+export async function GET() {
+// export function GET() {
   try {
     log.error("Something bad happened. foo");
     log.info(
@@ -61,7 +61,7 @@ export function GET() {
     // comment out to see if logs work in prod
     // it works in dev
 
-    // await transactionInsert();
+    await transactionInsert();
     const end = Date.now();
 
     const duration = end - start;
