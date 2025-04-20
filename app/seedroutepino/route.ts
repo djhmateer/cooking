@@ -36,9 +36,10 @@ async function transactionInsert() {
   // console.error("stderr: error: transactionInsert success");
 }
 
-export async function GET() {
+// export async function GET() {
+export function GET() {
   try {
-    log.error("Something bad happened.");
+    log.error("Something bad happened. foo");
     log.info(
       {
         item: "Orange Soda",
