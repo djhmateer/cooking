@@ -136,7 +136,11 @@ const transport = pino.transport({
 //   // Add any other base options you need
 // };
 
-const log = pino(options);
+// dumps default to stdout
+// const log = pino(options);
+
+const log = pino(transport);
+
 // const log = pino(options, transport);
 
 // best performance for logging to stdout
