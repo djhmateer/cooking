@@ -122,17 +122,12 @@ if (showPretty) {
   });
 } else {
   transport = pino.transport({
-    targets: [
-      {
-        target: "@logtail/pino",
-        options: {
-          sourceToken: sourceToken,
-          options: { endpoint: ingestingHost },
-        },
-      },
-    ],
+    target: "@logtail/pino",
+    options: {
+      sourceToken: sourceToken,
+      options: { endpoint: ingestingHost },
+    },
   });
-   
 }
 
 // const baseOptions: LoggerOptions = {
