@@ -137,7 +137,10 @@ const transport = pino.transport({
 // };
 
 // dumps default to stdout
-const log = pino(options);
+// const log = pino(options);
+
+// const pino = require('pino');
+const log = pino(pino.destination({ sync: true }));
 
 // const log = pino(transport);
 
