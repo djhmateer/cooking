@@ -67,20 +67,13 @@ export async function GET() {
     const duration = end - start;
 
     log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
 
-    log.info({ route: "/seedroutepino" }, "info API called");
-    log.warn({ route: "/seedroutepino" }, "warn API called");
-    log.error({ route: "/seedroutepino" }, "error API called");
-    log.fatal("fatal called");
+    // log.info({ route: "/seedroutepino" }, "info API called");
+    // log.warn({ route: "/seedroutepino" }, "warn API called");
+    // log.error({ route: "/seedroutepino" }, "error API called");
+    // log.fatal("fatal called");
 
-    // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
+    log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
