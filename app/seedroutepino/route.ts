@@ -36,7 +36,8 @@ async function transactionInsert() {
   // console.error("stderr: error: transactionInsert success");
 }
 
-export async function GET() {
+// export async function GET() {
+export function GET() {
   try {
     // return Response.json({
     //   logtail_ingesting_host: process.env.LOGTAIL_INGESTING_HOST,
@@ -49,8 +50,9 @@ export async function GET() {
     const start = Date.now();
 
     // comment out to see if logs work in prod
-    // nmothing worked???
-    await transactionInsert();
+    // it works in dev
+
+    // await transactionInsert();
     const end = Date.now();
 
     const duration = end - start;
