@@ -36,9 +36,17 @@ async function transactionInsert() {
   // console.error("stderr: error: transactionInsert success");
 }
 
-// export async function GET() {
-export function GET() {
+export async function GET() {
   try {
+    log.error("Something bad happened.");
+    log.info(
+      {
+        item: "Orange Soda",
+        price: 100.0,
+      },
+      "Log message with structured logging. ->"
+    );
+
     // return Response.json({
     //   logtail_ingesting_host: process.env.LOGTAIL_INGESTING_HOST,
     //   logtail_source_token: process.env.LOGTAIL_SOURCE_TOKEN,
@@ -52,7 +60,7 @@ export function GET() {
     // comment out to see if logs work in prod
     // it works in dev
 
-    // await transactionInsert();
+    await transactionInsert();
     const end = Date.now();
 
     const duration = end - start;
