@@ -1,6 +1,6 @@
 // lib/logger.ts
 import pino, { LoggerOptions } from "pino";
-import type { LokiOptions } from "pino-loki";
+// import type { LokiOptions } from "pino-loki";
 
 // stops runtime errors on vercel
 import "@logtail/pino";
@@ -55,13 +55,13 @@ const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
 // This works on prod with the import above
-// const transport = pino.transport({
-//   target: "@logtail/pino",
-//   options: {
-//     sourceToken: sourceToken,
-//     options: { endpoint: ingestingHost },
-//   },
-// });
+const transport = pino.transport({
+  target: "@logtail/pino",
+  options: {
+    sourceToken: sourceToken,
+    options: { endpoint: ingestingHost },
+  },
+});
 
 // gets all logs properly no losing any.
 // const transport = pino.transport({
@@ -94,41 +94,42 @@ const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 //   ],
 // });
 
-let showPretty = false;
-if (process.env.NODE_ENV === "development") {
-  showPretty = true;
-}
+// Works but prod looses some logs with an error.
+// let showPretty = false;
+// if (process.env.NODE_ENV === "development") {
+//   showPretty = true;
+// }
 
-let transport;
-if (showPretty) {
-  transport = pino.transport({
-    targets: [
-      {
-        target: "pino-pretty",
-        options: {
-          colorize: true,
-          translateTime: "SYS:standard",
-          ignore: "pid,hostname",
-        },
-      },
-      {
-        target: "@logtail/pino",
-        options: {
-          sourceToken: sourceToken,
-          options: { endpoint: ingestingHost },
-        },
-      },
-    ],
-  });
-} else {
-  transport = pino.transport({
-    target: "@logtail/pino",
-    options: {
-      sourceToken: sourceToken,
-      options: { endpoint: ingestingHost },
-    },
-  });
-}
+// let transport;
+// if (showPretty) {
+//   transport = pino.transport({
+//     targets: [
+//       {
+//         target: "pino-pretty",
+//         options: {
+//           colorize: true,
+//           translateTime: "SYS:standard",
+//           ignore: "pid,hostname",
+//         },
+//       },
+//       {
+//         target: "@logtail/pino",
+//         options: {
+//           sourceToken: sourceToken,
+//           options: { endpoint: ingestingHost },
+//         },
+//       },
+//     ],
+//   });
+// } else {
+//   transport = pino.transport({
+//     target: "@logtail/pino",
+//     options: {
+//       sourceToken: sourceToken,
+//       options: { endpoint: ingestingHost },
+//     },
+//   });
+// }
 
 // const baseOptions: LoggerOptions = {
 //   level: process.env.LOG_LEVEL || 'trace',
