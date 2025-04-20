@@ -74,25 +74,66 @@ const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 // });
 
 // Prety and Logtail - multi transport test works.. but losing some pino-pretty entries
-const transport = pino.transport({
-  targets: [
-    {
-      target: "pino-pretty",
-      options: {
-        colorize: true,
-        translateTime: "SYS:standard",
-        ignore: "pid,hostname",
+// const transport = pino.transport({
+//   targets: [
+//     {
+//       target: "pino-pretty",
+//       options: {
+//         colorize: true,
+//         translateTime: "SYS:standard",
+//         ignore: "pid,hostname",
+//       },
+//     },
+//     {
+//       target: "@logtail/pino",
+//       options: {
+//         sourceToken: sourceToken,
+//         options: { endpoint: ingestingHost },
+//       },
+//     },
+//   ],
+// });
+
+let showPretty = false;
+if (process.env.NODE_ENV === "development") {
+  showPretty = true;
+}
+
+let transport;
+if (showPretty) {
+  transport = pino.transport({
+    targets: [
+      {
+        target: "pino-pretty",
+        options: {
+          colorize: true,
+          translateTime: "SYS:standard",
+          ignore: "pid,hostname",
+        },
       },
-    },
-    {
-      target: "@logtail/pino",
-      options: {
-        sourceToken: sourceToken,
-        options: { endpoint: ingestingHost },
+      {
+        target: "@logtail/pino",
+        options: {
+          sourceToken: sourceToken,
+          options: { endpoint: ingestingHost },
+        },
       },
-    },
-  ],
-});
+    ],
+  });
+} else {
+  transport = pino.transport({
+    targets: [
+      {
+        target: "@logtail/pino",
+        options: {
+          sourceToken: sourceToken,
+          options: { endpoint: ingestingHost },
+        },
+      },
+    ],
+  });
+   
+}
 
 // const baseOptions: LoggerOptions = {
 //   level: process.env.LOG_LEVEL || 'trace',
