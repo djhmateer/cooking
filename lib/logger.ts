@@ -63,61 +63,48 @@ const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 //   },
 // });
 
-let transport;
+// gets all logs properly no losing any.
+// const transport = pino.transport({
+//   target: "pino-pretty",
+//   options: {
+//     colorize: true,
+//     translateTime: "SYS:standard",
+//     ignore: "pid,hostname",
+//   },
+// });
 
-// Prety and Logtail - multi transport test works
-if (process.env.NODE_ENV === "development") {
-  // transport = pino.transport({
-  //   targets: [
-  //     {
-  //       target: "pino-pretty",
-  //       options: {
-  //         colorize: true,
-  //         translateTime: "SYS:standard",
-  //         ignore: "pid,hostname",
-  //       },
-  //     },
-  //     {
-  //       target: "@logtail/pino",
-  //       options: {
-  //         sourceToken: sourceToken,
-  //         options: { endpoint: ingestingHost },
-  //       },
-  //     },
-  //   ],
-  // });
-  transport = pino.transport({
-    target: "@logtail/pino",
-    options: { sourceToken: sourceToken, options: { endpoint: ingestingHost } },
-  });
-}
-
-if (process.env.NODE_ENV === "production") {
-  transport = pino.transport({
-    target: "@logtail/pino",
-    options: { sourceToken: sourceToken, options: { endpoint: ingestingHost } },
-  });
-}
+// Prety and Logtail - multi transport test works.. but losing some pino-pretty entries
+const transport = pino.transport({
+  targets: [
+    {
+      target: "pino-pretty",
+      options: {
+        colorize: true,
+        translateTime: "SYS:standard",
+        ignore: "pid,hostname",
+      },
+    },
+    {
+      target: "@logtail/pino",
+      options: {
+        sourceToken: sourceToken,
+        options: { endpoint: ingestingHost },
+      },
+    },
+  ],
+});
 
 // const baseOptions: LoggerOptions = {
 //   level: process.env.LOG_LEVEL || 'trace',
 //   // Add any other base options you need
 // };
 
-let log: pino.Logger;
-
-try {
-  log = pino(options, transport);
-  console.log("Logger initialized");
-} catch (error) {
-  console.error("Failed to initialize logger:", error);
-  // Fallback to basic pino logger
-  log = pino(options);
-}
-
-export default log;
+// const log = pino(options);
+const log = pino(options, transport);
 
 // best performance for logging to stdout
 // https://getpino.io/#/docs/help?id=best-performance-for-logging-to-stdout
 // default is LOG_LEVEL of 30 ie Info
 // const log = pino();
+
+export default log;

@@ -45,7 +45,7 @@ export async function GET() {
 
     // log.trace('trace called');
     // log.debug('debug called');
-    log.debug({ route: '/seedroutepino' }, 'seedroutepino GET called');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino GET called');
     // log.info({ route: '/seedroutepino' }, 'info API called');
     // not getting this logged.
     // logger.debug({ route: '/seedroutepino' }, 'debug API called');
@@ -58,9 +58,9 @@ export async function GET() {
     const end = Date.now();
     const duration = end - start;
 
-    log.debug({ route: '/seedroutepino' }, 'seedroutepino done');
+    log.info({ route: '/seedroutepino' }, 'seedroutepino done');
     
-    log.debug({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
+    // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
