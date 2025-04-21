@@ -147,14 +147,13 @@ const transport = pino.transport({
 // dumps default to stdout
 // const log = pino(options);
 
-// const pino = require('pino');
+// this only gets half the logs
+// const log = pino();
 
 // for vercel - need synchronous writes to make sure logs are flushed
 // before functional termination
-// this works.
-// const log = pino(pino.destination({ sync: true }));
-
-const log = pino();
+// this get all the the logs
+const log = pino(pino.destination({ sync: true }));
 
 // const log = pino(transport);
 // const log = pino(transport({ sync: true }));

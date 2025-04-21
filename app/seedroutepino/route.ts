@@ -1,5 +1,8 @@
 import postgres from "postgres";
-import log from "../../lib/logger";
+// import log from "../../lib/logger";
+import log from "../../lib/winstonlogger";
+
+
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -73,7 +76,9 @@ export async function GET() {
     // log.error({ route: "/seedroutepino" }, "error API called");
     // log.fatal("fatal called");
 
-    log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
+    // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
+    log.info("seedroutepino duration", { duration });
+    
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
