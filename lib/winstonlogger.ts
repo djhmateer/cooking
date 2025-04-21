@@ -1,13 +1,24 @@
-// lib/logger.ts
-// import pino, { LoggerOptions } from "pino";
-// import type { LokiOptions } from "pino-loki";
+// lib/winstonlogger.ts
 
-const winston = require('winston');
+import * as winston from 'winston';
+import { Logger } from 'winston';
 
-const log = winston.createLogger({
+const log: Logger = winston.createLogger({
   level: 'info',
   format: winston.format.json(),
-  transports: [new winston.transports.Console()],
+  transports: [new winston.transports.Console()]
 });
 
 export default log;
+
+
+// This is CommonJS
+// const winston = require('winston');
+
+// const log = winston.createLogger({
+//   level: 'info',
+//   format: winston.format.json(),
+//   transports: [new winston.transports.Console()],
+// });
+
+// export default log;
