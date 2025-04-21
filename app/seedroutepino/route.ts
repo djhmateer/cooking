@@ -44,6 +44,7 @@ export async function GET() {
 
     log.info(`seedroutepino duration: ${duration}ms`);
 
+    throw new Error("test error");
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
