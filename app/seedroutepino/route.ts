@@ -35,29 +35,21 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
-    log.debug("debug message");
     log.info("insert starting");
-    log.warn("warn message");
-    // log.error("error message");
 
     await transactionInsert();
     // await new Promise((resolve) => setTimeout(resolve, 500)); // Add 1 second delay
-    log.info("insert end");
+    // log.info("insert end");
     const end = Date.now();
     const duration = end - start;
 
     log.info(`seedroutepino duration: ${duration}ms`);
 
-    // await log.flush();
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    // log.warn("inside catch");
-    console.error("console error caught in seedroutepino GET", error);
-
     log.error("error caught in seedroutepino GET ", { code: '500', error: error });
-    // await log.flush();
     return Response.json({ error }, { status: 500 });
   } finally {
     await log.flush();
