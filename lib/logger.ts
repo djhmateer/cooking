@@ -55,14 +55,22 @@ const ingestingHost = process.env.LOGTAIL_INGESTING_HOST;
 const sourceToken = process.env.LOGTAIL_SOURCE_TOKEN;
 
 // This works on prod with the import above
+// const transport = pino.transport({
+//   target: "@logtail/pino",
+//   options: {
+//     sourceToken: sourceToken,
+//     options: { endpoint: ingestingHost },
+//   },
+// });
+
 const transport = pino.transport({
   target: "@logtail/pino",
   options: {
     sourceToken: sourceToken,
     options: { endpoint: ingestingHost },
+    sync: true,
   },
 });
-
 // gets all logs properly no losing any.
 // const transport = pino.transport({
 //   target: "pino-pretty",
@@ -146,9 +154,9 @@ const transport = pino.transport({
 // const log = pino(pino.destination({ sync: true }));
 
 // const log = pino(transport);
-const log = pino(transport({ sync: true }));
+// const log = pino(transport({ sync: true }));
 
-// const log = pino(options, transport);
+const log = pino(options, transport);
 
 // best performance for logging to stdout
 // https://getpino.io/#/docs/help?id=best-performance-for-logging-to-stdout
