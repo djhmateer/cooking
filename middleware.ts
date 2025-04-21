@@ -3,10 +3,10 @@ import { NextResponse } from 'next/server'
 import type { NextFetchEvent, NextRequest } from 'next/server'
 
 export async function middleware(request: NextRequest, event: NextFetchEvent) {
-    const logger = new Logger({ source: 'middleware' }); // traffic, request
-    logger.middleware(request)
+    // const logger = new Logger({ source: 'middleware' }); // traffic, request
+    // logger.middleware(request)
 
-    event.waitUntil(logger.flush())
+    // event.waitUntil(logger.flush())
     return NextResponse.next()
 }
 
