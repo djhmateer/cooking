@@ -2,8 +2,6 @@ import postgres from "postgres";
 // import log from "../../lib/logger";
 import log from "../../lib/winstonlogger";
 
-
-
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function transactionInsert() {
@@ -34,11 +32,12 @@ async function transactionInsert() {
 }
 
 export async function GET() {
-// export function GET() {
+  // export function GET() {
   try {
     const start = Date.now();
     log.info("insert starting");
-    await transactionInsert();
+    // await transactionInsert();
+    await new Promise((resolve) => setTimeout(resolve, 1000)); // Add 1 second delay
     log.info("insert end");
     const end = Date.now();
     const duration = end - start;
@@ -51,7 +50,7 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    log.error( "error caught in seedroutepino GET");
+    log.error("error caught in seedroutepino GET");
     return Response.json({ error }, { status: 500 });
   }
 }
