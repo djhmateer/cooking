@@ -47,16 +47,16 @@ export async function GET() {
 
     // throw new Error("test error");
 
-    log.flush();
+    await log.flush();
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
     log.warn("inside catch");
-    console.error("error caught in seedroutepino GET", error);
+    console.error("console error caught in seedroutepino GET", error);
 
     log.error("error caught in seedroutepino GET ", { code: '500', error: error });
-    log.flush();
+    await log.flush();
     return Response.json({ error }, { status: 500 });
   } 
 }
