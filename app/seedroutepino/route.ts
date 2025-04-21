@@ -43,13 +43,13 @@ export async function GET() {
 // export function GET() {
   try {
     log.error("Something bad happened. foo");
-    log.info(
-      {
-        item: "Orange Soda",
-        price: 100.0,
-      },
-      "Log message with structured logging. ->"
-    );
+    // log.info(
+    //   {
+    //     item: "Orange Soda",
+    //     price: 100.0,
+    //   },
+    //   "Log message with structured logging. ->"
+    // );
 
     // return Response.json({
     //   logtail_ingesting_host: process.env.LOGTAIL_INGESTING_HOST,
@@ -58,18 +58,18 @@ export async function GET() {
 
     // log.trace('trace called');
     // log.debug('debug called');
-    log.info({ route: "/seedroutepino" }, "seedroutepino GET called");
+    // log.info({ route: "/seedroutepino" }, "seedroutepino GET called");
     const start = Date.now();
 
     // comment out to see if logs work in prod
     // it works in dev
 
+    log.info("insert starting");
     await transactionInsert();
     const end = Date.now();
 
     const duration = end - start;
 
-    log.info({ route: "/seedroutepino" }, "seedroutepino done");
 
     // log.info({ route: "/seedroutepino" }, "info API called");
     // log.warn({ route: "/seedroutepino" }, "warn API called");
@@ -86,10 +86,7 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    log.error(
-      { route: "/seedroutepino", error: error },
-      "error caught in seedroutepino GET"
-    );
+    log.error("error caught in seedroutepino GET", { error });
     return Response.json({ error }, { status: 500 });
   }
 }
