@@ -43,16 +43,17 @@ export async function GET() {
     const duration = end - start;
 
     log.info(`seedroutepino duration: ${duration}ms`);
-    log.flush();
+
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    // console.error("stderr: Seed route error:", error);
-    // console.log("stdout: GET function", error);
-    // log.error("error caught in seedroutepino GET");
-    throw error;
+    log.error("error caught in seedroutepino GET", { error });
     return Response.json({ error }, { status: 500 });
+  } finally {
+    // need this to flush the logs on vercel otherwise it will miss some
+    log.flush();
   }
+
 }
