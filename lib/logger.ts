@@ -151,7 +151,10 @@ const transport = pino.transport({
 
 // for vercel - need synchronous writes to make sure logs are flushed
 // before functional termination
-const log = pino(pino.destination({ sync: true }));
+// this works.
+// const log = pino(pino.destination({ sync: true }));
+
+const log = pino();
 
 // const log = pino(transport);
 // const log = pino(transport({ sync: true }));
