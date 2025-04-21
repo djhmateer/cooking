@@ -46,9 +46,10 @@ export async function GET() {
 
 
     // await new Promise(resolve => log.on('finish', resolve));
-    log.end(); // Explicitly end Winston logging stream
-    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay to ensure logs are processed
+    // log.end(); // Explicitly end Winston logging stream
     
+    await new Promise(resolve => setTimeout(resolve, 100)); // Small delay to ensure logs are processed
+
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });

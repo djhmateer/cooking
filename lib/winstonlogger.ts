@@ -29,6 +29,10 @@ const log = winston.createLogger({
   ],
 });
 
+log.on('finish', () => {
+  console.log('Logs flushed!');
+});
+
 
 
 
