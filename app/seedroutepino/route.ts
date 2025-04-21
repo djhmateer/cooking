@@ -35,6 +35,7 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
+    log.debug("debug message");
     log.info("insert starting");
     await transactionInsert();
     // await new Promise((resolve) => setTimeout(resolve, 500)); // Add 1 second delay
@@ -51,6 +52,7 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
+    log.warn("inside catch");
     console.error("error caught in seedroutepino GET", error);
 
     log.error("error caught in seedroutepino GET ", { code: '500', error: error });
