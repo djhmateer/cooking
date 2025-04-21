@@ -77,7 +77,7 @@ export async function GET() {
     // log.fatal("fatal called");
 
     // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
-    log.info("seedroutepino duration", { duration });
+    log.info(`seedroutepino duration: ${duration}ms`);
     
 
     return Response.json({
