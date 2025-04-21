@@ -14,6 +14,7 @@ async function transactionInsert() {
     image_url: "/customers/evil-rabbit.png",
   };
 
+  log.info("inside function start");
   // if I don't do a try catch it locks up postgres waiting for transaction to finish
   try {
     await sql.begin(async (sql) => {
@@ -28,57 +29,21 @@ async function transactionInsert() {
     });
   } catch (error) {
     throw error;
-  } finally {
-    const foo = 1;
-    // console.timeEnd('transactionInsert');
   }
-
-  // console.log("stdout: log: transactionInsert success");
-  // console.info("stdout: info: transactionInsert success");
-  // console.warn("std?? warning: transactionInsert success");
-  // console.error("stderr: error: transactionInsert success");
+  log.info("inside function end");
 }
 
 export async function GET() {
 // export function GET() {
   try {
-    log.error("Something bad happened. foo");
-    // log.info(
-    //   {
-    //     item: "Orange Soda",
-    //     price: 100.0,
-    //   },
-    //   "Log message with structured logging. ->"
-    // );
-
-    // return Response.json({
-    //   logtail_ingesting_host: process.env.LOGTAIL_INGESTING_HOST,
-    //   logtail_source_token: process.env.LOGTAIL_SOURCE_TOKEN,
-    // });
-
-    // log.trace('trace called');
-    // log.debug('debug called');
-    // log.info({ route: "/seedroutepino" }, "seedroutepino GET called");
     const start = Date.now();
-
-    // comment out to see if logs work in prod
-    // it works in dev
-
     log.info("insert starting");
     await transactionInsert();
+    log.info("insert end");
     const end = Date.now();
-
     const duration = end - start;
 
-
-    // log.info({ route: "/seedroutepino" }, "info API called");
-    // log.warn({ route: "/seedroutepino" }, "warn API called");
-    // log.error({ route: "/seedroutepino" }, "error API called");
-    // log.fatal("fatal called");
-
-    // log.info({ route: '/seedroutepino' }, 'seedroutepino duration', { duration });
     log.info(`seedroutepino duration: ${duration}ms`);
-    
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
@@ -86,7 +51,7 @@ export async function GET() {
   } catch (error) {
     // console.error("stderr: Seed route error:", error);
     // console.log("stdout: GET function", error);
-    log.error("error caught in seedroutepino GET", { error });
+    log.error( "error caught in seedroutepino GET");
     return Response.json({ error }, { status: 500 });
   }
 }

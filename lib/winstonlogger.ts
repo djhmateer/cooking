@@ -23,7 +23,10 @@ const logtail = new Logtail(sourceToken, { endpoint: ingestingHost });
 
 // Create a Winston logger - passing in the Logtail transport
 const log = winston.createLogger({
-  transports: [new LogtailTransport(logtail)],
+  transports: [
+    new LogtailTransport(logtail),
+    new winston.transports.Console(),
+  ],
 });
 
 
