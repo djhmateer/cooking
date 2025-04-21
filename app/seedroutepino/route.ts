@@ -1,7 +1,7 @@
 import postgres from "postgres";
 
 // import { useLogger } from 'next-axiom';
-import { log } from 'next-axiom'; 
+import { log } from "next-axiom";
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -51,11 +51,11 @@ export async function GET() {
     });
   } catch (error) {
     console.error("error caught in seedroutepino GET", error);
-    log.error("error caught in seedroutepino GET ${error}");
+
+    log.error("error caught in seedroutepino GET ", { code: '500', error: error });
     return Response.json({ error }, { status: 500 });
   } finally {
     // need this to flush the logs on vercel otherwise it will miss some
     log.flush();
   }
-
 }
