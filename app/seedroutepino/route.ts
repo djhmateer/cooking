@@ -49,7 +49,8 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
-    log.error("error caught in seedroutepino GET", { error });
+    console.error("error caught in seedroutepino GET", error);
+    log.error("error caught in seedroutepino GET ${error}");
     return Response.json({ error }, { status: 500 });
   } finally {
     // need this to flush the logs on vercel otherwise it will miss some
