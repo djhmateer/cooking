@@ -46,6 +46,7 @@ export async function GET() {
 
     // throw new Error("test error");
 
+    log.flush();
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
@@ -53,9 +54,11 @@ export async function GET() {
     console.error("error caught in seedroutepino GET", error);
 
     log.error("error caught in seedroutepino GET ", { code: '500', error: error });
+    log.flush();
     return Response.json({ error }, { status: 500 });
   } finally {
     // need this to flush the logs on vercel otherwise it will miss some
-    log.flush();
+    // desn't work with errors?
+    // log.flush();
   }
 }
