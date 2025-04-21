@@ -37,7 +37,7 @@ export async function GET() {
     const start = Date.now();
     log.info("insert starting");
     await transactionInsert();
-    await new Promise((resolve) => setTimeout(resolve, 500)); // Add 1 second delay
+    // await new Promise((resolve) => setTimeout(resolve, 500)); // Add 1 second delay
     log.info("insert end");
     const end = Date.now();
     const duration = end - start;
