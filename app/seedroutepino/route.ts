@@ -43,6 +43,7 @@ export async function GET() {
     const duration = end - start;
 
     log.info(`seedroutepino duration: ${duration}ms`);
+    log.flush();
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
