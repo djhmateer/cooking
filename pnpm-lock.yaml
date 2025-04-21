@@ -8,9 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@logtail/node':
+        specifier: ^0.5.4
+        version: 0.5.4
       '@logtail/pino':
         specifier: ^0.5.4
         version: 0.5.4(pino@9.6.0)
+      '@logtail/winston':
+        specifier: ^0.5.4
+        version: 0.5.4(winston@3.17.0)
       '@miketako3/cloki':
         specifier: ^0.1.16
         version: 0.1.16
@@ -759,6 +765,11 @@ packages:
 
   '@logtail/types@0.5.3':
     resolution: {integrity: sha512-5uKf1xQ7wRqSW0lYIwDpXdXcFHxPKH5EM22MoEjwTpd8suymOYuEdx9qCCHCYey4uOhPq7x6OkZf86bTO83JsA==}
+
+  '@logtail/winston@0.5.4':
+    resolution: {integrity: sha512-L36lyNEVFZpOpRNSflf4NiOM6fhaKSfgACnWB/riiVw/lMtXLiLL4GViMb8uT7dHbdFfeOMWKDQMYrHIq6BEJw==}
+    peerDependencies:
+      winston: '>=3.2.1'
 
   '@miketako3/cloki@0.1.16':
     resolution: {integrity: sha512-xafG4KrEhNA7HLkv3CaD7JO6zHcTb7ORc68PTvzhdbXujc2BIkIQdwudzdPSTENye/VRNigXjKhnRskBK6LhZg==}
@@ -3378,6 +3389,13 @@ snapshots:
       '@logtail/types': 0.5.3
 
   '@logtail/types@0.5.3': {}
+
+  '@logtail/winston@0.5.4(winston@3.17.0)':
+    dependencies:
+      '@logtail/node': 0.5.4
+      '@logtail/types': 0.5.3
+      winston: 3.17.0
+      winston-transport: 4.9.0
 
   '@miketako3/cloki@0.1.16': {}
 
