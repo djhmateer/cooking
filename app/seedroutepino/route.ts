@@ -1,12 +1,9 @@
 import postgres from "postgres";
-
-// import { useLogger } from 'next-axiom';
 import { log } from "next-axiom";
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function transactionInsert() {
-  // console.time('transactionInsert');
   const customer = {
     name: "Evil Rabbit",
     email: "evil@rabbit.com",
@@ -38,8 +35,7 @@ export async function GET() {
     log.info("insert starting");
 
     await transactionInsert();
-    // await new Promise((resolve) => setTimeout(resolve, 500)); // Add 1 second delay
-    // log.info("insert end");
+
     const end = Date.now();
     const duration = end - start;
 
