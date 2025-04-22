@@ -1,13 +1,14 @@
 import type { NextConfig } from "next";
 
-const { withAxiom } = require('next-axiom');
+// Axiom
+// const { withAxiom } = require('next-axiom');
 
-const nextConfig = withAxiom({
-  // Your existing configuration.
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-});
+// const nextConfig = withAxiom({
+//   // Your existing configuration.
+//   eslint: {
+//     ignoreDuringBuilds: true,
+//   },
+// });
 
 
 // const nextConfig: NextConfig = {
@@ -31,4 +32,19 @@ const nextConfig = withAxiom({
 //   // },
 // };
 
+// default next config
+// const nextConfig = {
+//   // Your existing configuration.
+//   eslint: {
+//     ignoreDuringBuilds: true,
+//   },
+// };
+// export default nextConfig;
+
+const nextConfig = {
+  // Your existing configuration.
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+};
 export default nextConfig;

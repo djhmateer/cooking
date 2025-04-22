@@ -1,5 +1,5 @@
 import postgres from "postgres";
-import { log } from "next-axiom";
+// import { log } from "next-axiom";
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -10,7 +10,7 @@ async function transactionInsert() {
     image_url: "/customers/evil-rabbit.png",
   };
 
-  log.info("inside function start");
+  // log.info("inside function start");
   // if I don't do a try catch it locks up postgres waiting for transaction to finish
   try {
     await sql.begin(async (sql) => {
@@ -26,20 +26,20 @@ async function transactionInsert() {
   } catch (error) {
     throw error;
   }
-  log.info("inside function end");
+  // log.info("inside function end");
 }
 
 export async function GET() {
   try {
     const start = Date.now();
-    log.info("insert starting");
+    // log.info("insert starting");
 
     await transactionInsert();
 
     const end = Date.now();
     const duration = end - start;
 
-    log.info(`seedroutepino duration: ${duration}ms`);
+    // log.info(`seedroutepino duration: ${duration}ms`);
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
@@ -47,9 +47,9 @@ export async function GET() {
   } catch (error) {
     // try global error handler to see if axiom is working
     // throw error;
-    log.error("error caught in seedroutepino GET ", { code: '500', error: error });
+    // log.error("error caught in seedroutepino GET ", { code: '500', error: error });
     return Response.json({ error }, { status: 500 });
   } finally {
-    await log.flush();
+    // await log.flush();
   }
 }
