@@ -1,6 +1,8 @@
 import postgres from "postgres";
 // import { log } from "next-axiom";
 
+import * as Sentry from "@sentry/nextjs";
+
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function transactionInsert() {
@@ -51,6 +53,9 @@ export async function GET() {
       message: `seeded successfully from route in ${duration} milliseconds`,
     });
   } catch (error) {
+    // send error to sentry
+    Sentry.captureException(error);
+    
     // try global error handler to see if axiom is working
     // throw error;
     // log.error("error caught in seedroutepino GET ", { code: '500', error: error });
