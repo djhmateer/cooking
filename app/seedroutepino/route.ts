@@ -37,11 +37,9 @@ export async function GET() {
     // console.log("this is a log - insert starting");
 
     console.info("this is an info message - insert starting");
-    console.warn("this is a warning");
-    console.error("this is an error");
-
+    // console.warn("this is a warning");
+    // console.error("this is an error");
     await transactionInsert();
-
     const end = Date.now();
     const duration = end - start;
 
@@ -57,6 +55,7 @@ export async function GET() {
     // try global error handler to see if axiom is working
     // throw error;
     // log.error("error caught in seedroutepino GET ", { code: '500', error: error });
+    console.error("error caught and handled in seedroutepino GET ", { code: '500', error: error });
     return Response.json({ error }, { status: 500 });
   } finally {
     // await log.flush();
