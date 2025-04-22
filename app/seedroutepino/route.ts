@@ -34,19 +34,17 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
-    console.log("this is a log - insert starting");
-    console.info("this is an info - same as log?");
+    // console.log("this is a log - insert starting");
 
+    console.info("this is an info message - insert starting");
     console.warn("this is a warning");
     console.error("this is an error");
-
 
     await transactionInsert();
 
     const end = Date.now();
     const duration = end - start;
 
-    // log.info(`seedroutepino duration: ${duration}ms`);
     console.info(`seedroutepino duration: ${duration}ms`);
 
     return Response.json({
@@ -55,7 +53,7 @@ export async function GET() {
   } catch (error) {
     // send error to sentry
     Sentry.captureException(error);
-    
+
     // try global error handler to see if axiom is working
     // throw error;
     // log.error("error caught in seedroutepino GET ", { code: '500', error: error });
