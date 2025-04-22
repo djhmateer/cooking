@@ -32,7 +32,12 @@ async function transactionInsert() {
 export async function GET() {
   try {
     const start = Date.now();
-    // log.info("insert starting");
+    console.log("this is a log - insert starting");
+    console.info("this is an info - same as log?");
+
+    console.warn("this is a warning");
+    console.error("this is an error");
+
 
     await transactionInsert();
 
@@ -40,6 +45,7 @@ export async function GET() {
     const duration = end - start;
 
     // log.info(`seedroutepino duration: ${duration}ms`);
+    console.info(`seedroutepino duration: ${duration}ms`);
 
     return Response.json({
       message: `seeded successfully from route in ${duration} milliseconds`,
