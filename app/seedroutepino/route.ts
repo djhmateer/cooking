@@ -46,7 +46,7 @@ export async function GET() {
     });
   } catch (error) {
     // try global error handler to see if axiom is working
-    throw error;
+    // throw error;
     log.error("error caught in seedroutepino GET ", { code: '500', error: error });
     return Response.json({ error }, { status: 500 });
   } finally {
