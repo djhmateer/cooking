@@ -1,7 +1,6 @@
 import postgres from "postgres";
 // import { log } from "next-axiom";
-
-import * as Sentry from "@sentry/nextjs";
+// import * as Sentry from "@sentry/nextjs";
 
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
@@ -50,7 +49,7 @@ export async function GET() {
     });
   } catch (error) {
     // send error to sentry
-    Sentry.captureException(error);
+    // Sentry.captureException(error);
 
     // try global error handler to see if axiom is working
     // throw error;
