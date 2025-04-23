@@ -34,11 +34,7 @@ const Header = () => {
 
           <Button asChild variant="ghost">
             <Link href="/faq">
-              {/* Icon to the left of the text */}
-              {/* <ShoppingCart /> */}
               <Info />
-              {/* Text */}
-              {/* All Recipes */}
               FAQ
             </Link>
           </Button>
