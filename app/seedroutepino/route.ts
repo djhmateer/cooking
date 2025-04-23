@@ -2,6 +2,7 @@ import postgres from "postgres";
 // import { log } from "next-axiom";
 // import * as Sentry from "@sentry/nextjs";
 
+// foo
 const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function transactionInsert() {
@@ -41,6 +42,7 @@ export async function GET() {
     await transactionInsert();
     const end = Date.now();
     const duration = end - start;
+    const foo = 1;
 
     console.info(`seedroutepino duration: ${duration}ms`);
 
