@@ -44,7 +44,7 @@ export default function GlobalError({ error }: { error: Error }) {
 
   return (
     <div>
-      <h2>Something went wrong!</h2>
+      <h2>This is the global error page ie global-error.tsx. A log has been sent to Sentry. Something went wrong!</h2>
       <Link href="/">Go Home</Link>
     </div>
   );
