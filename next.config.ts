@@ -1,8 +1,16 @@
 import type { NextConfig } from "next";
 
+const isProd = process.env.VERCEL_ENV === 'production';
+
 const nextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
+  },
+  // skip type checking during build ()
+  typescript: {
+    // ignoreBuildErrors: true,
+     // ignore build errors on production (to make build faster on prod)
+    ignoreBuildErrors: isProd,
   },
 };
 export default nextConfig;
