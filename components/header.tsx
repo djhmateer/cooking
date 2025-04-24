@@ -33,7 +33,7 @@ const Header = () => {
               So use asChild. */}
 
           <Button asChild variant="ghost">
-            <Link href="/faq">
+            <Link href="/faqXXX">
               <Info />
               FAQ (static)
             </Link>
