@@ -7,11 +7,11 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   // skip type checking during build ()
-  typescript: {
-    // ignoreBuildErrors: true,
-     // ignore build errors on production (to make build faster on prod)
-    ignoreBuildErrors: isProd,
-  },
+  // typescript: {
+  //   // ignoreBuildErrors: true,
+  //    // ignore build errors on production (to make build faster on prod)
+  //   // ignoreBuildErrors: isProd,
+  // },
 };
 export default nextConfig;
 
