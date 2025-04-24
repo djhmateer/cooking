@@ -40,6 +40,7 @@ import { useEffect } from "react";
 export default function GlobalError({ error }: { error: Error }) {
   useEffect(() => {
     // Sentry.captureException(error);
+    console.error("Global error - logging to stderr", error);
   }, [error]);
 
   return (
