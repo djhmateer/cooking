@@ -1,4 +1,6 @@
 // dont want this to be run on deployment and cached
+// page is always rendered fresh on the server for each request
+// page isn't cached at build time.
 export const dynamic = "force-dynamic";
 
 import "dotenv/config";
@@ -63,7 +65,7 @@ async function transactionInsert() {
 
 const FooPage = async () => {
   const start = Date.now();
-  await transactionInsert();
+  // await transactionInsert();
   // await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
