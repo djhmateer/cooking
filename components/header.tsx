@@ -35,7 +35,7 @@ const Header = () => {
           <Button asChild variant="ghost">
             <Link href="/faq">
               <Info />
-              FAQ (static pre fetched)
+              FAQ (static pre fetched!)
             </Link>
           </Button>
           <Button asChild variant="ghost">
