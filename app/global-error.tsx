@@ -32,22 +32,23 @@ import Link from "next/link";
 //   )
 // }
 
-// Sentry
-// import * as Sentry from "@sentry/nextjs";
 import Error from "next/error";
 import { useEffect } from "react";
 
 export default function GlobalError({ error }: { error: Error }) {
   useEffect(() => {
     // Sentry.captureException(error);
-    console.error("Global error - logging to stderr", error);
+    // console.error("Global-error - logging to stderr", error);
+
+    process.stderr.write(`Global error not written to users browser console: ${error}\n`);
+
+    // document.title = `Error ${error.statusCode || 500}`;
   }, [error]);
 
   return (
     <div>
       <h2>This is the global error page ie global-error.tsx.</h2>
       <Link href="/">Go Home</Link>
-      
     </div>
   );
 }
