@@ -1,6 +1,8 @@
 import { Card, CardHeader, CardTitle, CardContent } from "@/components/ui/card"
 // import { Separator } from "@/components/ui/separator"
 
+
+
 export default function FAQPage() {
   return (
     <div className="container mx-auto py-12 px-4">
@@ -9,7 +11,7 @@ export default function FAQPage() {
       <div className="space-y-6">
         <Card>
           <CardHeader>
-            <CardTitle className="text-xl text-primary">How can I plan quick meals around after-school activities?</CardTitle>
+            <CardTitle className="text-xl text-primary">How can I plan quick meals around after-school activities??</CardTitle>
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
