@@ -1,5 +1,7 @@
 "use client"; // Error boundaries must be Client Components
 
+// this is for handing errors on the client side
+
 import Link from "next/link";
 // import { useEffect } from 'react'
 
@@ -40,9 +42,7 @@ export default function GlobalError({ error }: { error: Error }) {
     // Sentry.captureException(error);
     // console.error("Global-error - logging to stderr", error);
 
-    process.stderr.write(`Global error not written to users browser console: ${error}\n`);
-
-    // document.title = `Error ${error.statusCode || 500}`;
+    // process.stderr.write(`Global error not written to users browser console: ${error}\n`);
   }, [error]);
 
   return (
