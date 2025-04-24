@@ -33,9 +33,9 @@ const Header = () => {
               So use asChild. */}
 
           <Button asChild variant="ghost">
-            <Link href="/faqXXX">
+            <Link href="/faq">
               <Info />
-              FAQ (static)
+              FAQ (static pre fetched)
             </Link>
           </Button>
           <Button asChild variant="ghost">
