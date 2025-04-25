@@ -10,12 +10,12 @@ export default function GlobalError({ error }: { error: Error }) {
     // should send to Sentry or something!
     // Sentry.captureException(error);
 
-    console.error("Logged to developer tools - sorry about this!");
+    console.error("Logged to developer tools from global-error.tsx - sorry about this!");
   }, [error]);
 
   return (
     <div>
-      <h2>This is the global error page ie global-error.tsx.</h2>
+      <h2>This is the client side global error page ie global-error.tsx.</h2>
       <Link href="/">Go Home</Link>
     </div>
   );
