@@ -1,3 +1,7 @@
+// always render the page on the server
+// skip all forms of caching
+// this is the opposite of static pages which are generated at build time and cached 
+
 export const dynamic = "force-dynamic";
 
 // not async unless need it
