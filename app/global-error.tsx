@@ -40,7 +40,7 @@ import { useEffect } from "react";
 export default function GlobalError({ error }: { error: Error }) {
   useEffect(() => {
     // Sentry.captureException(error);
-    console.error("Global-error - logging to stderr", error);
+    console.error("Global-error - logging to stderr.. can I see in vercel?", error);
 
     // process.stderr.write(`Global error not written to users browser console: ${error}\n`);
   }, [error]);
