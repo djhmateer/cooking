@@ -9,11 +9,8 @@ import ProductList from "@/components/product-list";
 const Homepage = () => {
   // server component - so output to webserver output and not the client console (use client will do this)
 
-  // fully cached on build, so will not output anyywhere unless 
+  // fully cached on build, so will not output anywhere unless force-dynamic
   console.log("log data is ", sampleData);
-  console.info("info data is ", sampleData);
-  console.warn("warn data is ", sampleData);
-  console.error("error data is ", sampleData);
   return (
     <>
       Currently we're importing sample data from a /db/sample-data.ts file.
