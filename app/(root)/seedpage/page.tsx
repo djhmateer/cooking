@@ -16,7 +16,7 @@ async function noTransactionInsert() {
 
   try {
     for (let i = 0; i < 1000; i++) {
-      // console.log("inserting ", i);
+      console.log("inserting ", i);
       await client`INSERT INTO customers (name, email, image_url)
         VALUES (${customer.name + i}, ${customer.email}, ${
         customer.image_url
@@ -24,46 +24,46 @@ async function noTransactionInsert() {
     }
   } catch (error) {
     console.error("error", error);
+    throw error;
   }
 
   console.timeEnd();
 }
 
-// 9.5, 8.9, 8.1, 8.9 on non-pooling
-// 8.5, 8.0, 7.4, 8.5, 8.1 on pooling
-async function transactionInsert() {
-  console.time();
-  const customer = {
-    name: "Evil Rabbit",
-    email: "evil@rabbit.com",
-    image_url: "/customers/evil-rabbit.png",
-  };
+// async function transactionInsert() {
+//   console.time();
+//   const customer = {
+//     name: "Evil Rabbit",
+//     email: "evil@rabbit.com",
+//     image_url: "/customers/evil-rabbit.png",
+//   };
 
-  console.log("starting");
-  try {
-    await client.begin(async (client) => {
-      for (let i = 0; i < 1000; i++) {
-        console.log("inserting ", i);
-        await client`
-          INSERT INTO customers (name, email, image_url)
-          VALUES (${customer.name + i}, ${customer.email}, ${
-          customer.image_url
-        })
-        `;
-      }
-    });
-  } catch (error) {
-    console.log("error", error);
-  }
+//   console.log("starting");
+//   try {
+//     await client.begin(async (client) => {
+//       for (let i = 0; i < 1000; i++) {
+//         console.log("inserting ", i);
+//         await client`
+//           INSERT INTO customers (name, email, image_url)
+//           VALUES (${customer.name + i}, ${customer.email}, ${
+//           customer.image_url
+//         })
+//         `;
+//       }
+//     });
+//   } catch (error) {
+//     console.log("error", error);
+//   }
 
-  console.log("done");
-  console.timeEnd();
-}
+//   console.log("done");
+//   console.timeEnd();
+// }
 
 const FooPage = async () => {
+// const FooPage = () => {
   const start = Date.now();
-  await transactionInsert();
-  // await noTransactionInsert();
+  // await transactionInsert();
+  await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
   return <>seeded successfully in {duration} milliseconds</>;

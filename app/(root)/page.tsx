@@ -2,7 +2,7 @@
 
 // export const dynamic = "force-dynamic";
 
-import sampleData from "@/db/sample-data";
+import sampleData from "@/db/traversy-sample-data";
 import ProductList from "@/components/product-list";
 
 // const Homepage = async () => {
@@ -17,7 +17,7 @@ const Homepage = () => {
   // console.log("log data is ", sampleData);
   return (
     <>
-      Currently we're importing sample data from a /db/sample-data.ts file.
+      Currently we're importing sample data from a /db/traversy-sample-data.ts file.
       <ProductList data={sampleData.products} title="Top Recipes" limit={4} />
     </>
   );
