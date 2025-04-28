@@ -1,6 +1,6 @@
 {
-  "id": "0edf9675-66e5-4e32-a14d-b82eaa789e1a",
-  "prevId": "78198b8f-70ac-42f8-9aee-1aa95c8e925c",
+  "id": "1123604f-7d61-47ad-b8cf-7dd1ae139c54",
+  "prevId": "1d150129-3ef3-4d1b-8f2b-bcf6d1d99e9b",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -47,7 +47,13 @@
           "name": "stuff",
           "type": "varchar(255)",
           "primaryKey": false,
-          "notNull": true
+          "notNull": false
+        },
+        "stuff2": {
+          "name": "stuff2",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
         }
       },
       "indexes": {},

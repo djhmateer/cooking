@@ -1,6 +1,11 @@
 // db/seed-drizzle.ts
 // npx tsx db/seed-drizzle
 
+// npx drizzle-kit push
+
+// npx drizzle-kit generate
+// npx drizzle-kit migrate
+
 import "dotenv/config";
 import { drizzle } from 'drizzle-orm/postgres-js';
 import { eq } from 'drizzle-orm';
@@ -14,6 +19,7 @@ async function main() {
     age: 30,
     email: 'john@example.com',
   };
+
   await db.insert(usersTable).values(user);
   console.log('New user created!')
   const users = await db.select().from(usersTable);
@@ -35,7 +41,10 @@ async function main() {
   console.log('User info updated!')
   // await db.delete(usersTable).where(eq(usersTable.email, user.email));
   // console.log('User deleted!')
+  // hack to exit the process
+  process.exit(0);
 }
 // note this will hang
 // need to do client.end() but this involves getting underlying postgres client
 main();
+

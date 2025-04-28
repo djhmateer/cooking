@@ -1,6 +1,6 @@
 {
-  "id": "1d150129-3ef3-4d1b-8f2b-bcf6d1d99e9b",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "f8a130a0-48ee-4179-b480-23a359aa0fb9",
+  "prevId": "867709e3-8594-46c6-acb4-faaa79d1ce11",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -45,6 +45,18 @@
         },
         "stuff": {
           "name": "stuff",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stuff2": {
+          "name": "stuff2",
+          "type": "varchar(255)",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "stuff4": {
+          "name": "stuff4",
           "type": "varchar(255)",
           "primaryKey": false,
           "notNull": false

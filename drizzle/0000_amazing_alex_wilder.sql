@@ -3,6 +3,5 @@ CREATE TABLE "users" (
 	"name" varchar(255) NOT NULL,
 	"age" integer NOT NULL,
 	"email" varchar(255) NOT NULL,
-
-
+	"stuff" varchar(255)
 );
