@@ -1,5 +1,9 @@
 import ProductCard from "./product-card";
 
+// Component props
+// data: array of products
+// title: string
+// limit: number
 const ProductList = ({
   data,
   title,
@@ -9,12 +13,22 @@ const ProductList = ({
   title?: string;
   limit?: number;
 }) => {
-  const limitedData = limit ? data.slice(0, limit) : data;
+  // ternary operator
+  // const limitedData = limit ? data.slice(0, limit) : data;
+
+  // todo should be an array of type Product
+  let limitedData: any[];
+
+  // if limit is defined, slice the data to that limit
+  if (limit) {
+    limitedData = data.slice(0, limit);
+  } else {
+    limitedData = data;
+  }
 
   return (
     // my-10: margin top and bottom of ProductList component of 40px
     <div className="my-10">
-
       {/* h2-bold: custom heading class */}
       {/* same as: font-bold text-2xl lg:text-3xl; */}
 
