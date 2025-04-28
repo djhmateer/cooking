@@ -14,7 +14,7 @@ const Homepage = () => {
 
 
   // on dev this outputs to the server console and browser console
-  console.log("log data is ", sampleData);
+  // console.log("log data is ", sampleData);
   return (
     <>
       Currently we're importing sample data from a /db/sample-data.ts file.

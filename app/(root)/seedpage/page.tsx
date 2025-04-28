@@ -1,15 +1,9 @@
-// dont want this to be run on deployment and cached
-// page is always rendered fresh on the server for each request
-// page isn't cached at build time.
 export const dynamic = "force-dynamic";
 
 import "dotenv/config";
 import postgres from "postgres";
 
-const sql = postgres(process.env.POSTGRES_URL_NON_POOLING!);
-// const sql = postgres(process.env.POSTGRES_URL!, {
-//   prepare: false
-// });
+const client = postgres(process.env.POSTGRES_URL_NON_POOLING!);
 
 async function noTransactionInsert() {
   console.time();
@@ -22,7 +16,7 @@ async function noTransactionInsert() {
   try {
     for (let i = 0; i < 1000; i++) {
       // console.log("inserting ", i);
-      await sql`INSERT INTO customers (name, email, image_url)
+      await client`INSERT INTO customers (name, email, image_url)
         VALUES (${customer.name + i}, ${customer.email}, ${
         customer.image_url
       })`;
@@ -45,10 +39,10 @@ async function transactionInsert() {
   };
 
   try {
-    await sql.begin(async (sql) => {
+    await client.begin(async (client) => {
       for (let i = 0; i < 1000; i++) {
-        // console.log("inserting ", i);
-        await sql`
+        console.log("inserting ", i);
+        await client`
           INSERT INTO customers (name, email, image_url)
           VALUES (${customer.name + i}, ${customer.email}, ${
           customer.image_url
@@ -65,7 +59,7 @@ async function transactionInsert() {
 
 const FooPage = async () => {
   const start = Date.now();
-  // await transactionInsert();
+  await transactionInsert();
   // await noTransactionInsert();
   const end = Date.now();
   const duration = end - start;
