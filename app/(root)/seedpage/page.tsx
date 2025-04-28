@@ -1,3 +1,4 @@
+// force-dynamic as never want this page to be cached. it is doing something!
 export const dynamic = "force-dynamic";
 
 import "dotenv/config";
@@ -38,6 +39,7 @@ async function transactionInsert() {
     image_url: "/customers/evil-rabbit.png",
   };
 
+  console.log("starting");
   try {
     await client.begin(async (client) => {
       for (let i = 0; i < 1000; i++) {
@@ -54,6 +56,7 @@ async function transactionInsert() {
     console.log("error", error);
   }
 
+  console.log("done");
   console.timeEnd();
 }
 
