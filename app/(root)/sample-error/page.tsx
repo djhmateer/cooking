@@ -3,6 +3,8 @@
 // this is the opposite of static pages which are generated at build time and cached 
 
 // This is a server component
+// as we're throwing an error, we need to force the page to be dynamic
+// otherwise it would prerender it and throw an error!
 export const dynamic = "force-dynamic";
 
 // not async unless need it
