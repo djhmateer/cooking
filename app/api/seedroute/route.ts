@@ -42,7 +42,7 @@ export async function GET() {
     await transactionInsert();
     const end = Date.now();
     const duration = end - start;
-    const foo = 1;
+    // const foo = 1;
 
     console.info(`seedroutepino duration: ${duration}ms`);
 

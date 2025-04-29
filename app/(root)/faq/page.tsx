@@ -15,9 +15,9 @@ export default function FAQPage() {
             <p className="text-muted-foreground">
               Our meal planner is designed for busy families juggling swimming lessons, 
               football practice, and homework. You can filter recipes by prep time and 
-              find 15-30 minute meals perfect for busy weekdays. We've got plenty of 
-              make-ahead options that work brilliantly when reheated, like shepherd's 
-              pie and pasta bakes. Plus, our "prep ahead" section shows what can be 
+              find 15-30 minute meals perfect for busy weekdays. We&apos;ve got plenty of 
+              make-ahead options that work brilliantly when reheated, like shepherd&apos;s 
+              pie and pasta bakes. Plus, our &quot;prep ahead&quot; section shows what can be 
               done on Sunday evening to save time during the week.
             </p>
           </CardContent>
@@ -36,7 +36,7 @@ export default function FAQPage() {
               <li>Healthier flapjacks and tray bakes for treats</li>
             </ul>
             <p className="mt-4 text-muted-foreground">
-              All lunch recipes come with a "packed lunch rating" from real kids and 
+              All lunch recipes come with a &quot;packed lunch rating&quot; from real kids and 
               tips for keeping food fresh and appealing by lunchtime.
             </p>
           </CardContent>
@@ -48,7 +48,7 @@ export default function FAQPage() {
           </CardHeader>
           <CardContent>
             <p className="text-muted-foreground">
-              Each recipe has age-appropriate tasks marked with our "Little Helpers" 
+              Each recipe has age-appropriate tasks marked with our &quot;Little Helpers&quot; 
               icons. For 8-10 year olds, we suggest safe tasks like measuring 
               ingredients, mixing batter, rolling dough, and assembling no-cook items. 
               Our weekend cooking projects are specially designed for family participation, 
@@ -82,10 +82,10 @@ export default function FAQPage() {
           <CardContent>
             <p className="text-muted-foreground">
               Our recipes include clever adaptations for picky eaters, with tips for 
-              "deconstructing" meals so everyone can enjoy dinner their way. We provide 
+              &quot;deconstructing&quot; meals so everyone can enjoy dinner their way. We provide 
               substitution guides for common allergens and dietary requirements, plus 
               strategies for gradually introducing new foods. Many recipes feature 
-              hidden vegetables (like our popular "midnight pasta sauce") and have 
+              hidden vegetables (like our popular &quot;midnight pasta sauce&quot;) and have 
               been tested by real British families.
             </p>
           </CardContent>
@@ -99,7 +99,7 @@ export default function FAQPage() {
             <p className="text-muted-foreground">
               Our meal plans include shopping lists optimised for major British 
               supermarkets, with budget-friendly swaps and seasonal ingredients. 
-              You'll find cost-per-portion calculations, tips for reducing food waste, 
+              You&apos;ll find cost-per-portion calculations, tips for reducing food waste, 
               and clever ways to use leftovers. We also highlight when to splash out 
               on quality ingredients and where supermarket basics work just as well.
             </p>

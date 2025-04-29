@@ -17,7 +17,7 @@ const Homepage = () => {
   // console.log("log data is ", sampleData);
   return (
     <>
-      Currently we're importing sample data from a /db/traversy-sample-data.ts file.
+      Currently we&apos;re importing sample data from a /db/traversy-sample-data.ts file.
       <ProductList data={sampleData.products} title="Top Recipes" limit={4} />
     </>
   );
