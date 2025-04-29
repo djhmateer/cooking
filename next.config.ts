@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
+// import type { NextConfig } from "next";
 
-const isProd = process.env.VERCEL_ENV === 'production';
+// const isProd = process.env.VERCEL_ENV === 'production';
 
 const nextConfig = {
   eslint: {
