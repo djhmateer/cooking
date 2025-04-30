@@ -1,4 +1,6 @@
 // zod-schemas/customer.ts
+
+// Zod schemas for customer
 import { createInsertSchema, createSelectSchema } from "drizzle-zod"
 import { customers } from "@/db/schema"
 
