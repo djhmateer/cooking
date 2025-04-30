@@ -4,7 +4,8 @@
 // seems like npx drizzle-kit migrate does the same
 
 import { db } from './index';
-import { migrate } from 'drizzle-orm/node-postgres/migrator';
+// import { migrate } from 'drizzle-orm/node-postgres/migrator';
+import { migrate } from 'drizzle-orm/postgres-js/migrator';
 
 const main = async () => {
     try {
